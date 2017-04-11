@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Angular 4';
+  change = function (newTitle : string){
+    this.title = newTitle;
+  }
 }

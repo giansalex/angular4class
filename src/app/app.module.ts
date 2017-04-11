@@ -4,17 +4,47 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { NoteComponent, AboutComponent, AuthComponent } from './container';
+import {
+  AppBarComponent,
+  NoteCardComponent,
+  NoteCreatorComponent,
+  ColorPickerComponent,
+} from './ui';
+import {
+  ApiService,
+  NotesService,
+  StoreService,
+  StoreHelperService,
+  AuthService,
+ } from './services';
+import { routes } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppBarComponent,
+    NoteComponent,
+    NoteCardComponent,
+    NoteCreatorComponent,
+    ColorPickerComponent,
+    AboutComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routes
   ],
-  providers: [],
+  providers: [
+    ApiService,
+    NotesService,
+    StoreService,
+    StoreHelperService,
+    AuthService,
+    {provide : 'api', useValue: 'http://localhost/www/ang4SymRest/web/app_dev.php'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
